@@ -17,5 +17,7 @@
         <mapping class="ru.job4j.toone.Role" /-->
         <mapping class="ru.job4j.many.User" />
         <mapping class="ru.job4j.many.Role" />
+        <mapping class="ru.job4j.many.Model" />
+        <mapping class="ru.job4j.many.Brand" />
     </session-factory>
 </hibernate-configuration>

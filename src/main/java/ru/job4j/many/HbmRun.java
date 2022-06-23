@@ -12,7 +12,8 @@ public class HbmRun {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure().build();
         try {
-            SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+            SessionFactory sf = new MetadataSources(registry)
+                    .buildMetadata().buildSessionFactory();
             Session session = sf.openSession();
             session.beginTransaction();
 

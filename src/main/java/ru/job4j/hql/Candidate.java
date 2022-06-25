@@ -1,19 +1,19 @@
 package ru.job4j.hql;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "candidates")
 public class Candidate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String experience;
-    private String salary;
+    private int salary;
 
-    public static Candidate of(String name, String experience, String salary) {
+    public static Candidate of(String name, String experience, int salary) {
         Candidate candidate = new Candidate();
         candidate.name = name;
         candidate.experience = experience;
@@ -45,11 +45,11 @@ public class Candidate {
         this.experience = experience;
     }
 
-    public String getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 

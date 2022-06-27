@@ -27,6 +27,10 @@ public class CandidateHbmRun {
             }
             Query query1 = session.createQuery("from Candidate c where c.id = 1");
             System.out.println(query1.uniqueResult());
+            Query query3 = session.createQuery("from Candidate c where c.name = 'Anton'");
+            for (Object s : query3.list()) {
+                System.out.println(s);
+            }
             Query query2 = session.createQuery("update Candidate c set c.name = 'Nikolay', c.salary = :newSalary where c.id = 2");
             query2.setParameter("newSalary", 3500);
             query2.executeUpdate();

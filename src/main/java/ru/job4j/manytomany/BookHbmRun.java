@@ -26,8 +26,8 @@ public class BookHbmRun {
 
             two.getAuthors().add(authorOne);
 
-            //session.persist(one);
-            //session.persist(two);
+            session.persist(one);
+            session.persist(two);
 
             Book book = session.get(Book.class, 2);
             session.remove(book);

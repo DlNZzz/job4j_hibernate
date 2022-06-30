@@ -18,20 +18,15 @@ public class CarHbmRun {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Session session = sf.openSession();
             session.beginTransaction();
-/*
             Brand brand = Brand.of("kia");
             session.save(brand);
             Model modelOne = Model.of("rio", brand);
             Model modelTwo = Model.of("k5", brand);
             session.save(modelOne);
             session.save(modelTwo);
-
- */
-
             list = session.createQuery(
                     "select distinct b from Brand b join fetch b.models"
             ).list();
-
             session.getTransaction().commit();
             session.close();
         }  catch (Exception e) {
@@ -39,10 +34,8 @@ public class CarHbmRun {
         } finally {
             StandardServiceRegistryBuilder.destroy(registry);
         }
-
         for (Model model : list.get(0).getModels()) {
             System.out.println(model);
         }
-
     }
 }
